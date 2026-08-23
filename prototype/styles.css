@@ -7,7 +7,7 @@
   --gold: #cd9b4a;
   --gold-light: #e3b96f;
   --border: #332a24;
-  --font-display: Georgia, 'Times New Roman', serif;
+  --font-display: 'Fraunces', Georgia, 'Times New Roman', serif;
   --font-body: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
 }
 
@@ -29,7 +29,7 @@ h1, h2, h3 {
 }
 
 p { margin: 0 0 1em; }
-a { color: var(--gold-light); text-decoration: none; }
+a { color: var(--gold-light); text-decoration: none; transition: color 0.15s ease; }
 a:hover { text-decoration: underline; }
 
 .container {
@@ -91,6 +91,9 @@ a:hover { text-decoration: underline; }
 }
 .btn:hover { text-decoration: none; }
 
+.btn { transition: background 0.15s ease, border-color 0.15s ease, transform 0.15s ease; }
+.btn:hover { transform: translateY(-1px); }
+
 .btn--gold {
   background: var(--gold);
   color: #14110f;
@@ -112,6 +115,20 @@ a:hover { text-decoration: underline; }
 .btn--ghost:hover { border-color: var(--text-dim); }
 
 .btn--sm { padding: 8px 16px; font-size: 0.85rem; }
+
+.link-arrow {
+  color: var(--text);
+  font-size: 0.95rem;
+  font-weight: 600;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 2px;
+  transition: border-color 0.15s ease, color 0.15s ease;
+}
+.link-arrow:hover {
+  color: var(--gold-light);
+  border-color: var(--gold-light);
+  text-decoration: none;
+}
 
 /* Header */
 .header {
@@ -145,17 +162,34 @@ a:hover { text-decoration: underline; }
   flex: 1;
   justify-content: center;
 }
-.nav a { color: var(--text-dim); font-size: 0.95rem; }
-.nav a:hover { color: var(--text); }
+.nav a {
+  position: relative;
+  color: var(--text-dim);
+  font-size: 0.95rem;
+  padding-bottom: 4px;
+}
+.nav a:hover { color: var(--text); text-decoration: none; }
+.nav a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 100%;
+  bottom: 0;
+  height: 1px;
+  background: var(--gold-light);
+  transition: right 0.2s ease;
+}
+.nav a:hover::after { right: 0; }
 
 /* Hero */
 .hero {
-  padding: 100px 0 80px;
-  background: radial-gradient(ellipse at top, var(--bg-alt), var(--bg));
+  padding: 128px 0 96px;
+  background:
+    radial-gradient(ellipse at top, var(--bg-alt), var(--bg) 70%);
   border-bottom: 1px solid var(--border);
 }
 
-.hero__inner { text-align: center; max-width: 700px; }
+.hero__inner { text-align: center; max-width: 720px; margin: 0 auto; }
 
 .eyebrow {
   color: var(--gold);
@@ -165,39 +199,56 @@ a:hover { text-decoration: underline; }
   margin-bottom: 12px;
 }
 
-.hero h1 { font-size: 2.4rem; }
-.hero__sub { color: var(--text-dim); font-size: 1.1rem; }
+.hero h1 { font-size: 3rem; line-height: 1.15; font-weight: 500; letter-spacing: -0.01em; }
+.hero__sub { color: var(--text-dim); font-size: 1.15rem; }
 
 .hero__actions {
   display: flex;
-  gap: 16px;
+  align-items: center;
+  gap: 28px;
   justify-content: center;
-  margin: 28px 0;
+  margin: 32px 0;
 }
 
-.hero__rating { color: var(--gold-light); font-size: 0.95rem; }
+.hero__rating { color: var(--gold-light); font-size: 0.95rem; letter-spacing: 0.02em; }
 
 /* Sections */
-.section { padding: 72px 0; }
+.section { padding: 96px 0; }
 .section--alt { background: var(--bg-alt); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
-.section h2 { font-size: 1.9rem; }
-.section__note { color: var(--text-dim); font-size: 0.85rem; font-style: italic; margin-top: 12px; }
+.section h2 { font-size: 2.1rem; font-weight: 500; }
+.section__note { color: var(--text-dim); font-size: 0.85rem; font-style: italic; margin-top: 16px; }
 
 /* Grid / cards */
-.grid { display: grid; gap: 24px; margin-top: 32px; }
+.grid { display: grid; gap: 24px; margin-top: 40px; }
 .grid--4 { grid-template-columns: repeat(4, 1fr); }
 .grid--2 { grid-template-columns: repeat(2, 1fr); }
 
 .card {
   background: var(--surface);
   border: 1px solid var(--border);
-  border-radius: 8px;
-  padding: 28px 20px;
+  border-radius: 10px;
+  overflow: hidden;
   text-align: center;
+  transition: transform 0.2s ease, border-color 0.2s ease;
 }
-.card__icon { font-size: 2rem; margin-bottom: 12px; }
-.card h3 { font-size: 1.1rem; }
-.card p { color: var(--text-dim); font-size: 0.9rem; margin: 0; }
+.card:hover { transform: translateY(-4px); border-color: var(--gold); }
+
+.card__image {
+  aspect-ratio: 4/3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(160deg, var(--bg-alt), var(--surface));
+  border-bottom: 1px solid var(--border);
+}
+.card__image--wine { background: linear-gradient(160deg, #3a1c22, var(--surface)); }
+.card__image--spirits { background: linear-gradient(160deg, #2e2416, var(--surface)); }
+.card__image--beer { background: linear-gradient(160deg, #33280f, var(--surface)); }
+.card__image--mixers { background: linear-gradient(160deg, #10262a, var(--surface)); }
+
+.card__icon { font-size: 2.25rem; }
+.card h3 { font-size: 1.1rem; margin: 20px 0 8px; }
+.card p { color: var(--text-dim); font-size: 0.9rem; margin: 0 0 24px; padding: 0 16px; }
 
 /* Location */
 .location {
@@ -221,16 +272,32 @@ a:hover { text-decoration: underline; }
 }
 
 /* Reviews */
-.reviews__rating { color: var(--gold-light); margin-top: -8px; }
+.reviews__rating { color: var(--gold-light); margin-top: -12px; }
 .review-card {
   background: var(--surface);
   border: 1px solid var(--border);
-  border-radius: 8px;
-  padding: 24px;
+  border-radius: 10px;
+  padding: 32px 28px 28px;
+  position: relative;
 }
-.review-card__stars { color: var(--gold); letter-spacing: 2px; margin-bottom: 8px; }
+.review-card__quotemark {
+  font-family: var(--font-display);
+  font-size: 3rem;
+  color: var(--gold);
+  opacity: 0.5;
+  line-height: 1;
+  margin: 0 0 4px;
+}
+.review-card__stars { color: var(--gold); letter-spacing: 2px; margin-bottom: 12px; font-size: 0.9rem; }
+.review-card__quote {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  font-style: italic;
+  line-height: 1.4;
+  margin-bottom: 16px;
+}
 .review-card__author { color: var(--text-dim); font-size: 0.85rem; margin: 0; }
-.link-more { display: inline-block; margin-top: 24px; }
+.link-more { display: inline-block; margin-top: 32px; }
 
 /* Footer */
 .footer {
