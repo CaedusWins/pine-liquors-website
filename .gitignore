@@ -1,0 +1,10 @@
+# WordPress core, plugins, and uploads are managed by the hosting/deploy
+# process (EC2), not tracked in this repo — only theme/ belongs here.
+wp-config.php
+wp-content/uploads/
+*.log
+
+# OS / editor cruft
+.DS_Store
+Thumbs.db
+.vscode/
