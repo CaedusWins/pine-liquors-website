@@ -6,6 +6,8 @@ Website project for Pine Liquors & Spirits, a liquor store in Pine, Colorado. Ta
 
 Early prototype phase. A static HTML/CSS/JS mockup (`prototype/`) is being used to iterate quickly on layout, branding, and content structure before committing to WordPress theme development. Nothing here is production-ready yet.
 
+**Live prototype preview:** https://caeduswins.github.io/pine-liquors-website/ — auto-deployed from `prototype/` on every push to `main` (see CI below). This repo is public so GitHub Pages can serve it; the eventual production site will move to WordPress on EC2.
+
 ## What's tracked here
 
 Only custom code belongs in this repo — WordPress core and third-party plugins are not version-controlled here; they're expected to be managed by the hosting/deploy setup on EC2 instead.
@@ -23,6 +25,7 @@ Every push/PR to `main` runs automatically via GitHub Actions (`.github/workflow
 
 - `lint` — validates `prototype/index.html` (`html-validate`) and `prototype/*.css` (`stylelint`). These are dev-only tooling (see `package.json`) — they don't ship with the site.
 - `php-lint` — runs `php -l` over `theme/*.php` to catch syntax errors early.
+- `deploy-prototype` — after both checks above pass, publishes `prototype/` to GitHub Pages.
 
 To run the lint checks locally: `npm install`, then `npm run lint`.
 
