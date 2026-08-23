@@ -10,12 +10,21 @@ Early prototype phase. A static HTML/CSS/JS mockup (`prototype/`) is being used 
 
 Only custom code belongs in this repo — WordPress core and third-party plugins are not version-controlled here; they're expected to be managed by the hosting/deploy setup on EC2 instead.
 
-- `prototype/` — static HTML/CSS/JS mockup. No build step, no dependencies. Open `prototype/index.html` directly in a browser, or serve the folder with any static file server.
+- `prototype/` — static HTML/CSS/JS mockup. No build step and no dependencies to *run* it — open `prototype/index.html` directly in a browser, or serve the folder with any static file server.
 - `theme/` — custom WordPress theme (styles, templates, functions). This is where the site will eventually live once the design direction from the prototype is settled and ported over.
 
 ## Branching
 
 - `main` is the only branch in active use. Work happens directly on it (or short-lived feature branches merged back in) — no separate long-running deployment branch exists yet since there's no deployment pipeline yet.
+
+## CI
+
+Every push/PR to `main` runs automatically via GitHub Actions (`.github/workflows/ci.yml`):
+
+- `lint` — validates `prototype/index.html` (`html-validate`) and `prototype/*.css` (`stylelint`). These are dev-only tooling (see `package.json`) — they don't ship with the site.
+- `php-lint` — runs `php -l` over `theme/*.php` to catch syntax errors early.
+
+To run the lint checks locally: `npm install`, then `npm run lint`.
 
 ## Local setup
 

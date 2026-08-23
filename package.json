@@ -1,0 +1,25 @@
+{
+  "name": "pine-liquors-website",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Website project for Pine Liquors & Spirits, a liquor store in Pine, Colorado. Target stack: WordPress, hosted on AWS EC2, with a custom theme.",
+  "scripts": {
+    "lint:html": "html-validate prototype/index.html",
+    "lint:css": "stylelint \"prototype/**/*.css\"",
+    "lint": "npm run lint:html && npm run lint:css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CaedusWins/pine-liquors-website.git"
+  },
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/CaedusWins/pine-liquors-website/issues"
+  },
+  "homepage": "https://github.com/CaedusWins/pine-liquors-website#readme",
+  "devDependencies": {
+    "html-validate": "^11.10.0",
+    "stylelint": "^17.14.1",
+    "stylelint-config-recommended": "^18.0.0"
+  }
+}
