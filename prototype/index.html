@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pine Liquors & Spirits — Pine, Colorado</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Age verification gate -->
+  <div id="age-gate" class="age-gate">
+    <div class="age-gate__box">
+      <p class="age-gate__brand">PINE LIQUORS &amp; SPIRITS</p>
+      <h1>Are you 21 or older?</h1>
+      <p class="age-gate__sub">You must be of legal drinking age to enter this site.</p>
+      <div class="age-gate__actions">
+        <button id="age-yes" class="btn btn--gold">Yes, I'm 21+</button>
+        <button id="age-no" class="btn btn--ghost">No</button>
+      </div>
+      <p id="age-blocked" class="age-gate__blocked" hidden>
+        Sorry — you must be 21 or older to view this site.
+      </p>
+    </div>
+  </div>
+
+  <div id="site" class="site" hidden>
+
+    <header class="header">
+      <div class="container header__inner">
+        <a href="#top" class="wordmark">PINE <span>LIQUORS &amp; SPIRITS</span></a>
+        <nav class="nav">
+          <a href="#shop">Shop</a>
+          <a href="#location">Location</a>
+          <a href="#reviews">Reviews</a>
+          <a href="#contact">Contact</a>
+        </nav>
+        <a href="tel:+13038384278" class="btn btn--gold btn--sm">Call Now</a>
+      </div>
+    </header>
+
+    <section id="top" class="hero">
+      <div class="container hero__inner">
+        <p class="eyebrow">Pine, Colorado</p>
+        <h1>Your neighborhood liquor store<br>in the heart of Pine.</h1>
+        <p class="hero__sub">Wine, spirits, beer &amp; more — friendly service, right off Hwy 285.</p>
+        <div class="hero__actions">
+          <a href="#location" class="btn btn--gold">Get Directions</a>
+          <a href="tel:+13038384278" class="btn btn--outline">(303) 838-4278</a>
+        </div>
+        <p class="hero__rating">★★★★☆ 4.1 &nbsp;·&nbsp; 26 Google reviews</p>
+      </div>
+    </section>
+
+    <section id="shop" class="section">
+      <div class="container">
+        <p class="eyebrow">What we carry</p>
+        <h2>Shop by category</h2>
+        <div class="grid grid--4">
+          <div class="card">
+            <div class="card__icon">🍷</div>
+            <h3>Wine</h3>
+            <p>Reds, whites &amp; rosés for every occasion.</p>
+          </div>
+          <div class="card">
+            <div class="card__icon">🥃</div>
+            <h3>Spirits</h3>
+            <p>Whiskey, vodka, tequila, gin &amp; more.</p>
+          </div>
+          <div class="card">
+            <div class="card__icon">🍺</div>
+            <h3>Beer</h3>
+            <p>Local Colorado craft &amp; national favorites.</p>
+          </div>
+          <div class="card">
+            <div class="card__icon">🧊</div>
+            <h3>Mixers &amp; More</h3>
+            <p>Mixers, ice, and everything to round out your order.</p>
+          </div>
+        </div>
+        <p class="section__note">Placeholder categories — swap in real featured products/brands when ready.</p>
+      </div>
+    </section>
+
+    <section id="location" class="section section--alt">
+      <div class="container">
+        <p class="eyebrow">Visit us</p>
+        <h2>Hours &amp; Location</h2>
+        <div class="location">
+          <div class="location__details">
+            <h3>Hours</h3>
+            <table class="hours">
+              <tr><td>Monday – Sunday</td><td>10:00 AM – 7:30 PM</td></tr>
+            </table>
+            <p class="section__note">Hours shown are a placeholder (only closing time was confirmed) — confirm full hours before launch.</p>
+
+            <h3>Address</h3>
+            <p>67348 US Hwy 285<br>Pine, CO 80470</p>
+
+            <h3>Phone</h3>
+            <p><a href="tel:+13038384278">(303) 838-4278</a></p>
+
+            <a href="https://www.google.com/maps/dir/?api=1&destination=67348+US+Hwy+285+Pine+CO+80470" target="_blank" rel="noopener" class="btn btn--gold">Get Directions</a>
+          </div>
+          <div class="location__map">
+            <iframe
+              title="Pine Liquors & Spirits map"
+              src="https://www.google.com/maps?q=67348+US+Hwy+285+Pine+CO+80470&output=embed"
+              width="100%" height="100%" style="border:0;" loading="lazy">
+            </iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="reviews" class="section">
+      <div class="container">
+        <p class="eyebrow">What people say</p>
+        <h2>Reviews</h2>
+        <p class="reviews__rating">★★★★☆ 4.1 out of 5 &nbsp;·&nbsp; 26 Google reviews</p>
+        <div class="grid grid--2">
+          <div class="review-card">
+            <p class="review-card__stars">★★★★★</p>
+            <p>&ldquo;Great customer service and extremely friendly staff!&rdquo;</p>
+            <p class="review-card__author">— M.</p>
+          </div>
+          <div class="review-card">
+            <p class="review-card__stars">★★★☆☆</p>
+            <p>&ldquo;Good selection, and has mostly everything you need from a liquor aspect.&rdquo;</p>
+            <p class="review-card__author">— Google review</p>
+          </div>
+        </div>
+        <a href="https://www.google.com/search?q=pine+liquors" target="_blank" rel="noopener" class="link-more">Read more reviews on Google →</a>
+      </div>
+    </section>
+
+    <footer id="contact" class="footer">
+      <div class="container footer__inner">
+        <div>
+          <p class="wordmark wordmark--footer">PINE <span>LIQUORS &amp; SPIRITS</span></p>
+          <p>67348 US Hwy 285, Pine, CO 80470</p>
+          <p><a href="tel:+13038384278">(303) 838-4278</a></p>
+          <p>Open daily · 10:00 AM – 7:30 PM</p>
+        </div>
+        <div class="footer__responsible">
+          <p>Please drink responsibly. Must be 21+ to purchase.</p>
+          <p class="footer__copyright">&copy; 2026 Pine Liquors &amp; Spirits. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+  </div>
+
+<script src="script.js"></script>
+</body>
+</html>
