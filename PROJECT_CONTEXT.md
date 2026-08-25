@@ -33,9 +33,9 @@ confirmed details came from:
 - **Address:** 67348 US Hwy 285, Pine, CO 80470
 - **Phone:** (303) 838-4278
 - **Rating:** 4.1★, 26 Google reviews
-- **Hours:** only the closing time was visible in the source screenshot
-  (7:30 PM). Opening time is an **unconfirmed placeholder** (10:00 AM,
-  same daily) — confirm before this goes further.
+- **Hours:** **confirmed** — 11:00 AM – 7:30 PM, all 7 days of the week
+  (same hours every day). Live in `prototype/index.html` as of
+  2026-08-25.
 - **Reviews in use:** "Great customer service and extremely friendly
   staff!" — M. (5★); "Good selection, and has mostly everything you need
   from a liquor aspect." — Google review (3★)
@@ -172,7 +172,8 @@ it's easy to confuse the two in a shared VS Code/terminal environment.
 
 ## Open items / TODO
 
-1. Confirm real weekly opening hours (only closing time is confirmed).
+1. ~~Confirm real weekly opening hours.~~ **Done 2026-08-25** — 11:00 AM –
+   7:30 PM, all 7 days.
 2. Real product photography to replace the placeholder category tiles.
 3. Specific featured products/brands (currently generic categories only).
 4. Fold in notes from the user's OneNote once shared.
