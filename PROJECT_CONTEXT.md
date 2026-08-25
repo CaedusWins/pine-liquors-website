@@ -5,6 +5,22 @@ file into a new chat (or just reopen this repo — see `CLAUDE.md`) to pick
 up where things left off. Kept up to date as work progresses; treat it as
 the source of truth over memory of "what we did."
 
+**Emergency resume checklist:** (1) read this whole file, (2) run
+`git log --oneline -10` and `git status` to confirm the repo matches what's
+described below, (3) check the live prototype URL still renders, (4) check
+the Open items list for what's next. That's sufficient — nothing else is
+required to pick this project back up cold.
+
+**Known gotcha — local Claude Code session history is keyed by folder
+path.** This repo was renamed from `web-dev-exploration` to
+`pine-liquors-website` (see Repo layout below). Claude Code's local session
+transcripts (`~/.claude/projects/<folder-path>/*.jsonl` on this machine) are
+filed per exact folder path, so any session run before that rename is not
+retrievable under the current path — as of 2026-08-25 only 2 transcripts
+exist locally, both from after the rename. **This file is the only durable
+record of anything decided before that point** — raw chat history is not a
+fallback for pre-rename decisions the way it is for post-rename ones.
+
 Last updated: 2026-08-25 (after the asymmetric/bento/glass redesign and the
 motion-and-interaction pass that followed it).
 
