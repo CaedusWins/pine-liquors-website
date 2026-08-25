@@ -5,7 +5,8 @@ file into a new chat (or just reopen this repo — see `CLAUDE.md`) to pick
 up where things left off. Kept up to date as work progresses; treat it as
 the source of truth over memory of "what we did."
 
-Last updated: 2026-08-23 (after enabling GitHub Pages deployment).
+Last updated: 2026-08-25 (after the asymmetric/bento/glass redesign and the
+motion-and-interaction pass that followed it).
 
 ## The business
 
@@ -45,6 +46,35 @@ confirmed details came from:
   nav; category tiles as photo-ready cards (currently color-coded
   gradient placeholders, swap in real product photography later);
   editorial pull-quote styling for reviews.
+- **Current visual treatment (as of the Aug 23 redesign, two commits,
+  `3e3134d` then `d8cfcef`)** — layered on top of the section list below,
+  not a change to it:
+  - Hero: asymmetric split layout — large fluid-type headline (italic
+    accent word) on the left, a glassmorphic "quick info" panel (rating,
+    live-status dot, hours, address, phone, directions CTA) on the
+    right, over a gold/wine/pine radial mesh glow. Headline renders as a
+    masked, staggered line reveal rather than a plain fade-in. A giant
+    translucent "PINE" wordmark bleeds behind the content for scale.
+  - Shop-by-category: bento grid (one large feature tile + three
+    regular) with hover-reveal "Explore →" affordance; cards get a
+    subtle mouse-driven 3D tilt.
+  - Reviews: two-column layout — big-number rating summary beside
+    stacked review cards, with a large translucent quote-mark watermark
+    behind the section; the 4.1 figure animates as a count-up when it
+    scrolls into view.
+  - Location: floating glass "Open now" badge over the embedded map.
+  - Interaction/motion layer: frosted, shrinking sticky header on
+    scroll; scroll-reveal fade+rise via IntersectionObserver; a
+    cursor-tracked spotlight glow over the hero; magnetic CTA buttons
+    that shift toward the cursor; themed scrollbar; subtle film-grain
+    texture over the dark background. Buttons are pill-shaped with a
+    gradient fill/soft glow.
+  - **Accessibility guardrail:** every cursor-driven or motion effect
+    (spotlight, tilt, magnetic buttons, scroll-reveal, count-up) is
+    gated behind `(hover: hover)` and/or `prefers-reduced-motion` checks
+    in both CSS and JS — touch devices and reduced-motion users get the
+    static/instant version. Preserve this gating in any future changes
+    to these effects.
 - **Repo visibility is public.** It started private; GitHub Pages does
   not work on private repos on the free GitHub plan, so — after
   confirming with the user — the repo was made public specifically to
