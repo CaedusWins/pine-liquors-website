@@ -443,8 +443,16 @@ a:hover { text-decoration: underline; }
   border-bottom: 1px solid var(--border);
   overflow: hidden;
 }
-.card__image--wine { background: linear-gradient(160deg, var(--wine), var(--surface)); }
-.card__image--spirits { background: linear-gradient(160deg, #3a2e18, var(--surface)); }
+.card__image--wine {
+  background:
+    linear-gradient(160deg, rgba(46, 14, 22, 0.6), rgba(20, 10, 12, 0.4)),
+    url('assets/aspen_peak_bottle_1.jpg') center/cover no-repeat;
+}
+.card__image--spirits {
+  background:
+    linear-gradient(160deg, rgba(28, 20, 6, 0.6), rgba(18, 14, 5, 0.4)),
+    url('assets/generic_liquor_store_whiskey_1.jpg') center/cover no-repeat;
+}
 .card__image--beer { background: linear-gradient(160deg, #3d3011, var(--surface)); }
 .card__image--mixers { background: linear-gradient(160deg, var(--pine), var(--surface)); }
 .card--feature .card__image { aspect-ratio: auto; height: 100%; min-height: 260px; }
