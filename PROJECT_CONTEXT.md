@@ -177,8 +177,20 @@ it's easy to confuse the two in a shared VS Code/terminal environment.
 1. ~~Confirm real weekly opening hours.~~ **Done 2026-08-25** — 11:00 AM –
    7:30 PM, all 7 days.
 2. Real product photography to replace the placeholder category tiles.
-   **Blocked on user:** need actual photos (drag into chat or point to a
-   local folder) — can't be generated, has to be real per the rule below.
+   **In progress 2026-09-02:** user shared 3 reference photos — (a) a
+   real photo of this store's own shelves/counter (Hennessy, Weller,
+   Elijah Craig, Buffalo Trace, Van Winkle, Blanton's, E.H. Taylor, Old
+   Fitzgerald, Jack Daniel's, Sugarlands jarred cocktails all visible —
+   genuinely this store, safe to use), (b) a Hennessy bar-shot and (c)
+   an Aspen Peak Cellars bottle-by-a-river shot that both read as the
+   brands' own marketing photography rather than photos of this store —
+   flagged to the user as a copyright/permission consideration if used
+   commercially. **Explicit plan, confirmed by the user:** these three
+   are a temporary stand-in only — real photos from an upcoming store
+   visit replace them. Don't let this item quietly close until that
+   swap actually happens. Blocked short-term on getting the three image
+   files onto disk (pasted images aren't automatically saved to a
+   readable path) before they can be wired into the site.
 3. ~~Specific featured products/brands.~~ **Partly done 2026-09-02** —
    Wine and Spirits tiles now name Hennessy, Grey Goose, and Aspen Peak
    Cellars. Beer and Mixers still generic; add more brands as provided.
