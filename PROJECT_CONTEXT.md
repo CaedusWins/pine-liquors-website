@@ -39,8 +39,10 @@ confirmed details came from:
 - **Reviews in use:** "Great customer service and extremely friendly
   staff!" — M. (5★); "Good selection, and has mostly everything you need
   from a liquor aspect." — Google review (3★)
-- **Featured products:** generic categories only so far (wine, spirits,
-  beer, mixers) — no specific brands/picks provided yet.
+- **Featured products:** Wine and Spirits categories now name real
+  carried brands — Hennessy, Grey Goose, and local wine from Aspen Peak
+  Cellars (confirmed 2026-09-02). Beer and Mixers are still generic;
+  more brands welcome whenever provided.
 - The user has a local OneNote with further notes not yet shared here.
 
 ## Direction / decisions made
@@ -175,7 +177,11 @@ it's easy to confuse the two in a shared VS Code/terminal environment.
 1. ~~Confirm real weekly opening hours.~~ **Done 2026-08-25** — 11:00 AM –
    7:30 PM, all 7 days.
 2. Real product photography to replace the placeholder category tiles.
-3. Specific featured products/brands (currently generic categories only).
+   **Blocked on user:** need actual photos (drag into chat or point to a
+   local folder) — can't be generated, has to be real per the rule below.
+3. ~~Specific featured products/brands.~~ **Partly done 2026-09-02** —
+   Wine and Spirits tiles now name Hennessy, Grey Goose, and Aspen Peak
+   Cellars. Beer and Mixers still generic; add more brands as provided.
 4. Fold in notes from the user's OneNote once shared.
 5. Eventually: port the settled design from `prototype/` into `theme/`
    and provision the AWS EC2 hosting — not started yet.
