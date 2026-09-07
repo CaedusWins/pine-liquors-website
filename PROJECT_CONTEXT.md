@@ -214,31 +214,38 @@ business's site. Process going forward:
 1. ~~Confirm real weekly opening hours.~~ **Done 2026-08-25** — 11:00 AM –
    7:30 PM, all 7 days.
 2. ~~Real product photography.~~ **Done 2026-09-07**, then refined the
-   same day (warm-interior pass). Current category-tile images (set in
-   `prototype/styles.css`, `.card__image--*`):
-   - Wine (feature): `wine-liqueur-shelf.jpg` — warm, stocked wine +
-     liqueur shelves under the log-beam ceiling.
-   - Spirits: `premium-spirits-shelf-hennessy.jpg` — unchanged, the full
-     spirits wall.
-   - Beer: `back-room-coolers-snacks.jpg` — **weakest tile, known
-     placeholder.** It's warm (knotty pine, glass-door coolers) and not
-     empty/grim, but the centre crop reads "snack corner / back room"
-     more than "beer." Per the user (2026-09-07): use what we have for
-     now, get a proper stocked-beer-cooler photo from the owner later
-     and swap it in.
-   - Mixers: `cooler-drinks-closeup.jpg` — unchanged.
+   same day (warm-interior pass). The images actually wired into the
+   page were also renamed to role-based names at the user's request, so
+   a later swap is just "drop a better JPG on the same filename." The
+   descriptive originals (`wine-liqueur-shelf.jpg` etc.) no longer
+   exist under those names — `git log --follow` traces them. Current
+   category-tile images (set in `prototype/styles.css`, `.card__image--*`):
+   - Wine (feature): `assets/category-wine.jpg` (was
+     `wine-liqueur-shelf.jpg`) — warm, stocked wine + liqueur shelves
+     under the log-beam ceiling.
+   - Spirits: `assets/category-spirits.jpg` (was
+     `premium-spirits-shelf-hennessy.jpg`) — the full spirits wall.
+   - Beer: `assets/category-beer.jpg` (was `back-room-coolers-snacks.jpg`)
+     — **weakest tile, known placeholder.** It's warm (knotty pine,
+     glass-door coolers) and not empty/grim, but the centre crop reads
+     "snack corner / back room" more than "beer." Per the user
+     (2026-09-07): use what we have for now, get a proper
+     stocked-beer-cooler photo from the owner later and drop it on this
+     same filename.
+   - Mixers: `assets/category-mixers.jpg` (was `cooler-drinks-closeup.jpg`).
 
    **Dropped for looking unwelcoming:** `wine-beer-fridge.jpg` (half the
    frame is a bare, empty cooler) and `walk-in-cooler-beer-cases-2.jpg`
    (stained diamond-plate floor, half-empty wire racks). Both still in
-   `prototype/assets/`, just not referenced.
+   `prototype/assets/` under their original names, just not referenced.
 
    **New "ambiance" band:** a full-bleed interior section (`.ambiance`
    in CSS, markup between `#shop` and `#location` in `index.html`) using
-   `liquor-aisle-fireball-display.jpg` — the best single "this is our
-   store" wide shot (log ceiling, warm light, Fireball tower, whiskey
-   wall). `background-position` is nudged to `28% 38%` to favour the
-   aisle and keep the cluttered sticky-note counter toward the edge.
+   `assets/interior-ambiance.jpg` (was `liquor-aisle-fireball-display.jpg`)
+   — the best single "this is our store" wide shot (log ceiling, warm
+   light, Fireball tower, whiskey wall). `background-position` is nudged
+   to `28% 38%` to favour the aisle and keep the cluttered sticky-note
+   counter toward the edge.
 
    Also removed the stale "Placeholder categories — swap in real
    featured products/brands when ready" note under the Shop grid; the
