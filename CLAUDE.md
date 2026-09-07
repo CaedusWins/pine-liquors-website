@@ -11,3 +11,9 @@ chat) would need to know about it — a new decision, a structural change,
 a resolved or newly discovered TODO, a tradeoff made — update
 `PROJECT_CONTEXT.md` in the same commit as the change, not as an
 afterthought.
+
+**Follow the QA process in `PROJECT_CONTEXT.md`.** Don't push straight to
+`main` out of habit — lint locally and actually look at the page in a
+browser first; anything beyond a trivial one-line content fix goes
+through a short-lived branch + PR so CI runs before it can go live. See
+the "QA process" section there for the exact steps.

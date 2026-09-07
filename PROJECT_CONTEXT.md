@@ -169,10 +169,37 @@ git repo (own GitHub remote `CaedusWins/wulfram3`, own branches) for a
 different project. No connection to this repo — mentioned only because
 it's easy to confuse the two in a shared VS Code/terminal environment.
 
+## QA process (established 2026-09-07 — follow this, don't push straight to main)
+
+Before this date, changes went straight to `main` and were verified against
+the *live* site after the fact — lint catches syntax errors, not "does this
+look right in a browser." That's not good enough now that this is a real
+business's site. Process going forward:
+
+1. **Always, before any push:** run `npm ci && npm run lint` locally (must
+   pass), and actually load `prototype/index.html` — e.g.
+   `npx serve prototype` or `python -m http.server` from that folder — and
+   look at the change in a real browser. Don't rely on lint alone; it
+   doesn't catch layout/visual regressions.
+2. **Trivial, single-line content-only fixes** (a typo, a price, a phone
+   digit — no CSS/structural/image change) may still go straight to `main`
+   after step 1 passes. Low risk, and this is a solo-dev pre-launch project.
+3. **Anything else** (CSS, HTML structure, images, multiple files): work on
+   a short-lived branch (`git checkout -b fix/<short-name>`), push it, and
+   open a PR into `main`. CI already runs `lint` + `php-lint` automatically
+   on pull requests (`.github/workflows/ci.yml`, `pull_request` trigger) —
+   no workflow changes were needed, that machinery just wasn't being used.
+   `deploy-prototype` only runs `if: github.ref == 'refs/heads/main'`, so
+   nothing goes live until the PR is actually merged. Merge only once CI is
+   green **and** step 1's local visual check passed. Delete the branch after
+   merging.
+4. **If something still slips through:** `git revert <commit>` + push is the
+   fast undo — GitHub Pages redeploys automatically within ~30–60s of the
+   next push to `main`. Fast recovery is a safety net, not a substitute for
+   steps 1–3.
+
 ## Working-style notes for whoever (or whichever session) picks this up
 
-- Routine git commit/push to `main` on this repo can happen without
-  asking each time — that's an established standing preference.
 - Decisions that change public exposure or connect new external services
   (making the repo public, enabling Pages, connecting a new hosting
   provider) should still be confirmed explicitly — don't assume the
