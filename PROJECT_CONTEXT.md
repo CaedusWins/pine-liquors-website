@@ -21,8 +21,18 @@ exist locally, both from after the rename. **This file is the only durable
 record of anything decided before that point** — raw chat history is not a
 fallback for pre-rename decisions the way it is for post-rename ones.
 
-Last updated: 2026-08-25 (after the asymmetric/bento/glass redesign and the
-motion-and-interaction pass that followed it).
+Last updated: 2026-09-07 (after 13 real store photos landed — see Open
+items #2 below for an unresolved business-name flag this surfaced).
+
+**⚠️ OPEN QUESTION — do not treat as resolved:** a real photo of the
+physical road sign (`prototype/assets/road-sign-longs-liquor.jpg`) reads
+**"Long's Liquor"** paired with "Golden Pine Chinese Restaurant & Bar" —
+not "Pine Liquors & Spirits," the name this entire site is built around
+(sourced from Google Business Profile, not verified against physical
+signage until now). Could be a deliberate rebrand the sign hasn't caught
+up to, could mean the site's name is wrong, or the sign could belong to a
+neighboring business. **Needs the user's confirmation before any further
+branding work, and before this project is considered launch-ready.**
 
 ## The business
 
@@ -177,20 +187,18 @@ it's easy to confuse the two in a shared VS Code/terminal environment.
 1. ~~Confirm real weekly opening hours.~~ **Done 2026-08-25** — 11:00 AM –
    7:30 PM, all 7 days.
 2. Real product photography to replace the placeholder category tiles.
-   **In progress 2026-09-02:** user shared 3 reference photos — (a) a
-   real photo of this store's own shelves/counter (Hennessy, Weller,
-   Elijah Craig, Buffalo Trace, Van Winkle, Blanton's, E.H. Taylor, Old
-   Fitzgerald, Jack Daniel's, Sugarlands jarred cocktails all visible —
-   genuinely this store, safe to use), (b) a Hennessy bar-shot and (c)
-   an Aspen Peak Cellars bottle-by-a-river shot that both read as the
-   brands' own marketing photography rather than photos of this store —
-   flagged to the user as a copyright/permission consideration if used
-   commercially. **Explicit plan, confirmed by the user:** these three
-   are a temporary stand-in only — real photos from an upcoming store
-   visit replace them. Don't let this item quietly close until that
-   swap actually happens. Blocked short-term on getting the three image
-   files onto disk (pasted images aren't automatically saved to a
-   readable path) before they can be wired into the site.
+   **Materially done 2026-09-07** — user provided 13 real store photos
+   (storefront exterior, checkout counter, both walk-in coolers, wine/
+   beer fridge, full premium spirits wall). Renamed descriptively,
+   processed with ImageMagick (resized to max 1920px, quality 80; ~50MB
+   of camera originals down to ~6.5MB), full-res originals kept local
+   in `prototype/assets/originals/` (gitignored). **Not yet wired into
+   the HTML/CSS tiles** — that's the remaining step, and it's paused on
+   the business-name flag at the top of this file. The 2026-09-02 batch
+   (Hennessy bar-shot, Aspen Peak Cellars bottle) are still the ones
+   live on the site for now; still marketing photography, not this
+   store's own, so still worth swapping once the name question is
+   settled and these new ones get wired in.
 3. ~~Specific featured products/brands.~~ **Partly done 2026-09-02** —
    Wine and Spirits tiles now name Hennessy, Grey Goose, and Aspen Peak
    Cellars. Beer and Mixers still generic; add more brands as provided.
