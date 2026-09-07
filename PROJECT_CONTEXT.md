@@ -24,15 +24,13 @@ fallback for pre-rename decisions the way it is for post-rename ones.
 Last updated: 2026-09-07 (after 13 real store photos landed — see Open
 items #2 below for an unresolved business-name flag this surfaced).
 
-**⚠️ OPEN QUESTION — do not treat as resolved:** a real photo of the
-physical road sign (`prototype/assets/road-sign-longs-liquor.jpg`) reads
-**"Long's Liquor"** paired with "Golden Pine Chinese Restaurant & Bar" —
-not "Pine Liquors & Spirits," the name this entire site is built around
-(sourced from Google Business Profile, not verified against physical
-signage until now). Could be a deliberate rebrand the sign hasn't caught
-up to, could mean the site's name is wrong, or the sign could belong to a
-neighboring business. **Needs the user's confirmation before any further
-branding work, and before this project is considered launch-ready.**
+**Resolved 2026-09-07 — business name confirmed.** The "Long's Liquor"
+road sign is old signage from before a rebrand; **"Pine Liquors &
+Spirits" is the current, correct name**, confirmed by the user. Physical
+signage just hasn't caught up yet. Per the user, `road-sign-longs-liquor.jpg`
+is deliberately excluded from site use for now (shows the outdated name)
+— kept in `prototype/assets/` as a reference photo only, not wired into
+any page. Revisit if/when the physical sign is updated.
 
 ## The business
 
@@ -186,22 +184,24 @@ it's easy to confuse the two in a shared VS Code/terminal environment.
 
 1. ~~Confirm real weekly opening hours.~~ **Done 2026-08-25** — 11:00 AM –
    7:30 PM, all 7 days.
-2. Real product photography to replace the placeholder category tiles.
-   **Materially done 2026-09-07** — user provided 13 real store photos
-   (storefront exterior, checkout counter, both walk-in coolers, wine/
-   beer fridge, full premium spirits wall). Renamed descriptively,
-   processed with ImageMagick (resized to max 1920px, quality 80; ~50MB
-   of camera originals down to ~6.5MB), full-res originals kept local
-   in `prototype/assets/originals/` (gitignored). **Not yet wired into
-   the HTML/CSS tiles** — that's the remaining step, and it's paused on
-   the business-name flag at the top of this file. The 2026-09-02 batch
-   (Hennessy bar-shot, Aspen Peak Cellars bottle) are still the ones
-   live on the site for now; still marketing photography, not this
-   store's own, so still worth swapping once the name question is
-   settled and these new ones get wired in.
-3. ~~Specific featured products/brands.~~ **Partly done 2026-09-02** —
-   Wine and Spirits tiles now name Hennessy, Grey Goose, and Aspen Peak
-   Cellars. Beer and Mixers still generic; add more brands as provided.
+2. ~~Real product photography.~~ **Done 2026-09-07** — all four category
+   tiles (Wine, Spirits, Beer, Mixers) now use real store photos:
+   `wine-beer-fridge.jpg`, `premium-spirits-shelf-hennessy.jpg`,
+   `walk-in-cooler-beer-cases-2.jpg`, `cooler-drinks-closeup.jpg`. The
+   2026-09-02 marketing photos (Hennessy bar-shot, Aspen Peak Cellars
+   bottle) were removed from the repo entirely, no longer needed. Nine
+   more real photos (storefront exterior, checkout counter, second
+   walk-in-cooler angle, wine/liqueur shelf, whiskey/vodka walls, etc.)
+   sit unused in `prototype/assets/` — good candidates for a hero image,
+   the Location section, or an eventual full gallery, not yet placed
+   anywhere. `road-sign-longs-liquor.jpg` is deliberately excluded from
+   site use (old name/signage — see the note near the top of this file).
+3. ~~Specific featured products/brands.~~ **Done 2026-09-07** — Wine,
+   Spirits, and Beer tiles all name real carried brands (Hennessy, Grey
+   Goose, Jameson, Elijah Craig, Aspen Peak Cellars, Colorado Native,
+   New Belgium Voodoo Ranger, Coors Banquet). Mixers stays generic by
+   nature of the category; revisit only if a specific mixer brand
+   becomes worth naming.
 4. Fold in notes from the user's OneNote once shared.
 5. Eventually: port the settled design from `prototype/` into `theme/`
    and provision the AWS EC2 hosting — not started yet.
