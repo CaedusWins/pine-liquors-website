@@ -21,8 +21,10 @@ exist locally, both from after the rename. **This file is the only durable
 record of anything decided before that point** — raw chat history is not a
 fallback for pre-rename decisions the way it is for post-rename ones.
 
-Last updated: 2026-09-07 (after 13 real store photos landed — see Open
-items #2 below for an unresolved business-name flag this surfaced).
+Last updated: 2026-09-07 (warm-interior photo pass — swapped the two
+"empty/industrial cooler" category tiles for warmer shots and added a
+full-bleed interior "ambiance" band between Shop and Location; see Open
+items #2).
 
 **Resolved 2026-09-07 — business name confirmed.** The "Long's Liquor"
 road sign is old signage from before a rebrand; **"Pine Liquors &
@@ -211,18 +213,48 @@ business's site. Process going forward:
 
 1. ~~Confirm real weekly opening hours.~~ **Done 2026-08-25** — 11:00 AM –
    7:30 PM, all 7 days.
-2. ~~Real product photography.~~ **Done 2026-09-07** — all four category
-   tiles (Wine, Spirits, Beer, Mixers) now use real store photos:
-   `wine-beer-fridge.jpg`, `premium-spirits-shelf-hennessy.jpg`,
-   `walk-in-cooler-beer-cases-2.jpg`, `cooler-drinks-closeup.jpg`. The
-   2026-09-02 marketing photos (Hennessy bar-shot, Aspen Peak Cellars
-   bottle) were removed from the repo entirely, no longer needed. Nine
-   more real photos (storefront exterior, checkout counter, second
-   walk-in-cooler angle, wine/liqueur shelf, whiskey/vodka walls, etc.)
-   sit unused in `prototype/assets/` — good candidates for a hero image,
-   the Location section, or an eventual full gallery, not yet placed
-   anywhere. `road-sign-longs-liquor.jpg` is deliberately excluded from
-   site use (old name/signage — see the note near the top of this file).
+2. ~~Real product photography.~~ **Done 2026-09-07**, then refined the
+   same day (warm-interior pass). Current category-tile images (set in
+   `prototype/styles.css`, `.card__image--*`):
+   - Wine (feature): `wine-liqueur-shelf.jpg` — warm, stocked wine +
+     liqueur shelves under the log-beam ceiling.
+   - Spirits: `premium-spirits-shelf-hennessy.jpg` — unchanged, the full
+     spirits wall.
+   - Beer: `back-room-coolers-snacks.jpg` — **weakest tile, known
+     placeholder.** It's warm (knotty pine, glass-door coolers) and not
+     empty/grim, but the centre crop reads "snack corner / back room"
+     more than "beer." Per the user (2026-09-07): use what we have for
+     now, get a proper stocked-beer-cooler photo from the owner later
+     and swap it in.
+   - Mixers: `cooler-drinks-closeup.jpg` — unchanged.
+
+   **Dropped for looking unwelcoming:** `wine-beer-fridge.jpg` (half the
+   frame is a bare, empty cooler) and `walk-in-cooler-beer-cases-2.jpg`
+   (stained diamond-plate floor, half-empty wire racks). Both still in
+   `prototype/assets/`, just not referenced.
+
+   **New "ambiance" band:** a full-bleed interior section (`.ambiance`
+   in CSS, markup between `#shop` and `#location` in `index.html`) using
+   `liquor-aisle-fireball-display.jpg` — the best single "this is our
+   store" wide shot (log ceiling, warm light, Fireball tower, whiskey
+   wall). `background-position` is nudged to `28% 38%` to favour the
+   aisle and keep the cluttered sticky-note counter toward the edge.
+
+   Also removed the stale "Placeholder categories — swap in real
+   featured products/brands when ready" note under the Shop grid; the
+   categories now name real brands and use real photos.
+
+   Still-unused photos in `prototype/assets/`: `storefront-exterior.jpg`
+   (good for a hero or the Location section), `checkout-counter-shooters.jpg`,
+   `walk-in-cooler-beer-cases-1.jpg`, `liquor-wall-vodka-office.jpg`,
+   `whiskey-wall-cigarettes-office.jpg` (best views of the hand-painted
+   Western mural, but all have office chair / monitor / license
+   paperwork clutter in frame — worth asking the owner for a clean
+   re-shoot of the mural wall). The 2026-09-02 marketing photos
+   (Hennessy bar-shot, Aspen Peak Cellars bottle) were removed from the
+   repo entirely. `road-sign-longs-liquor.jpg` is deliberately excluded
+   from site use (old name/signage — see the note near the top of this
+   file).
 3. ~~Specific featured products/brands.~~ **Done 2026-09-07** — Wine,
    Spirits, and Beer tiles all name real carried brands (Hennessy, Grey
    Goose, Jameson, Elijah Craig, Aspen Peak Cellars, Colorado Native,
