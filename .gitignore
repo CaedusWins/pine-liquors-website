@@ -11,3 +11,7 @@ Thumbs.db
 
 # Lint tooling (devDependencies only — the site itself has no build step)
 node_modules/
+
+# Full-resolution source photos (local backup only) -- web-optimized
+# copies of these live directly in prototype/assets/, committed normally.
+prototype/assets/originals/
