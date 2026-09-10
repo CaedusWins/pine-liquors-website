@@ -21,8 +21,13 @@ exist locally, both from after the rename. **This file is the only durable
 record of anything decided before that point** — raw chat history is not a
 fallback for pre-rename decisions the way it is for post-rename ones.
 
-Last updated: 2026-09-07 (after 13 real store photos landed — see Open
-items #2 below for an unresolved business-name flag this surfaced).
+Last updated: 2026-09-09 (second photo batch — 20 new store photos shot,
+renamed, deduped; four wired in: a hero background image, a real
+craft-beer cooler for the Beer tile, a new "A serious selection" photo
+band, and the storefront in the Location section. Then a "fluff" pass:
+a shared warm color-grade + vignette/scrim treatment over every photo
+so partially-stocked shelves read as atmosphere rather than gaps.
+Branch `photos/warm-interior-framework` → PR #1. See Open items #2.)
 
 **Resolved 2026-09-07 — business name confirmed.** The "Long's Liquor"
 road sign is old signage from before a rebrand; **"Pine Liquors &
@@ -211,18 +216,134 @@ business's site. Process going forward:
 
 1. ~~Confirm real weekly opening hours.~~ **Done 2026-08-25** — 11:00 AM –
    7:30 PM, all 7 days.
-2. ~~Real product photography.~~ **Done 2026-09-07** — all four category
-   tiles (Wine, Spirits, Beer, Mixers) now use real store photos:
-   `wine-beer-fridge.jpg`, `premium-spirits-shelf-hennessy.jpg`,
-   `walk-in-cooler-beer-cases-2.jpg`, `cooler-drinks-closeup.jpg`. The
-   2026-09-02 marketing photos (Hennessy bar-shot, Aspen Peak Cellars
-   bottle) were removed from the repo entirely, no longer needed. Nine
-   more real photos (storefront exterior, checkout counter, second
-   walk-in-cooler angle, wine/liqueur shelf, whiskey/vodka walls, etc.)
-   sit unused in `prototype/assets/` — good candidates for a hero image,
-   the Location section, or an eventual full gallery, not yet placed
-   anywhere. `road-sign-longs-liquor.jpg` is deliberately excluded from
-   site use (old name/signage — see the note near the top of this file).
+2. ~~Real product photography.~~ **Done 2026-09-07**, then refined the
+   same day (warm-interior pass). The images actually wired into the
+   page were also renamed to role-based names at the user's request, so
+   a later swap is just "drop a better JPG on the same filename." The
+   descriptive originals (`wine-liqueur-shelf.jpg` etc.) no longer
+   exist under those names — `git log --follow` traces them. Current
+   category-tile images (set in `prototype/styles.css`, `.card__image--*`):
+   - Wine (feature): `assets/category-wine.jpg` (was
+     `wine-liqueur-shelf.jpg`) — warm, stocked wine + liqueur shelves
+     under the log-beam ceiling.
+   - Spirits: `assets/category-spirits.jpg` (was
+     `premium-spirits-shelf-hennessy.jpg`) — the full spirits wall.
+   - Beer: `assets/category-beer.jpg` — **replaced 2026-09-09.** The old
+     "snack corner / back room" placeholder was overwritten (same
+     filename, per the swap convention) with a real craft-beer cooler
+     shot from the second photo batch: Loveland Aleworks IPAs, Twisted
+     Tea, Voodoo Ranger. `background-position` is `center 32%` to favour
+     the upper cans. Full-res backup:
+     `assets/originals/cooler-craft-beer.jpg`.
+   - Mixers: `assets/category-mixers.jpg` (was `cooler-drinks-closeup.jpg`).
+
+   **Dropped for looking unwelcoming:** `wine-beer-fridge.jpg` (half the
+   frame is a bare, empty cooler) and `walk-in-cooler-beer-cases-2.jpg`
+   (stained diamond-plate floor, half-empty wire racks). Both still in
+   `prototype/assets/` under their original names, just not referenced.
+
+   **New "ambiance" band:** a full-bleed interior section (`.ambiance`
+   in CSS, markup between `#shop` and `#location` in `index.html`) using
+   `assets/interior-ambiance.jpg` (was `liquor-aisle-fireball-display.jpg`)
+   — the best single "this is our store" wide shot (log ceiling, warm
+   light, Fireball tower, whiskey wall). `background-position` is nudged
+   to `28% 38%` to favour the aisle and keep the cluttered sticky-note
+   counter toward the edge.
+
+   Also removed the stale "Placeholder categories — swap in real
+   featured products/brands when ready" note under the Shop grid; the
+   categories now name real brands and use real photos.
+
+   Still-unused photos from the first batch in `prototype/assets/`:
+   `storefront-exterior.jpg`, `checkout-counter-shooters.jpg`,
+   `walk-in-cooler-beer-cases-1.jpg`, `liquor-wall-vodka-office.jpg`,
+   `whiskey-wall-cigarettes-office.jpg` (best views of the hand-painted
+   Western mural, but all have office chair / monitor / license
+   paperwork clutter in frame — worth asking the owner for a clean
+   re-shoot of the mural wall). The 2026-09-02 marketing photos
+   (Hennessy bar-shot, Aspen Peak Cellars bottle) were removed from the
+   repo entirely. `road-sign-longs-liquor.jpg` is deliberately excluded
+   from site use (old name/signage — see the note near the top of this
+   file).
+
+   **Second photo batch (2026-09-09).** The owner sent 20 more phone
+   photos (Google-default `20260909_HHMMSS.jpg` names — no meaning,
+   safe to discard). Process followed the first-batch pattern: full-res
+   auto-oriented copies into the gitignored `assets/originals/`,
+   ~1920px / ~500 KB web copies committed in `assets/` under
+   descriptive kebab-case names. **No exact (hash) duplicates** were
+   found, in the batch or against existing assets. Three near-duplicate
+   burst shots were dropped at the user's call: a second mid-distance
+   storefront frame, a shot with a bystander's arm in frame, and a
+   half-empty domestic-beer cooler. 17 kept.
+
+   Wired into the page this pass (all on branch
+   `photos/warm-interior-framework`):
+   - **Hero background** — `assets/spirits-aisle-wide.jpg` behind a
+     strong left-to-right dark gradient (`.hero__photo` in CSS, new
+     `<div>` first child of `.hero`). The hero had no photography before
+     this — it was a CSS radial-glow mesh only; the ghost "PINE"
+     wordmark (`.hero__wordmark-bg`) still exists but is now barely
+     visible over the photo (candidate to remove). Mobile gets a more
+     vertical, slightly lighter gradient via the `max-width: 800px`
+     block so the stacked text stays legible.
+   - **Beer tile** — see the `category-beer.jpg` note above.
+   - **New "A serious selection" band** — `id="selection"`, a `.section`
+     between `#shop` and `.ambiance` in `index.html`. Four `<figure>`
+     tiles (`.selection__grid` / `.selection__item`) with real `<img>`
+     (alt text, `loading="lazy"`), a caption in a bottom gradient, and a
+     subtle hover zoom gated behind `prefers-reduced-motion`. Tiles use
+     a fixed `height: clamp(300px, 30vw, 400px)` with
+     `object-fit: cover` — an earlier `aspect-ratio` approach was
+     abandoned because headless-Chrome preview rendering of
+     `aspect-ratio` + `height:100%` child was unreliable; the clamp is
+     deterministic. Images: `whiskey-wall-jim-beam.jpg`,
+     `vodka-gondola.jpg`, `gin-shelf.jpg`, `sake-soju-aisle.jpg`.
+     4-across desktop → 2×2 at ≤960px.
+   - **Storefront in Location** — `assets/storefront-wide.jpg` as a
+     full-width `<figure class="location__storefront">` (grid-column
+     `1 / -1`) after the map inside `.location`, captioned "look for the
+     red siding and the neon OPEN sign." Fixed `height: 340px` (220px on
+     mobile).
+   - **Nav** gained a "Selection" link between Shop and Location.
+
+   **"Fluff" pass (same commit series).** The store is only
+   partially stocked in places (empty shelf sections in several
+   photos). Rather than retouch product in — which would misrepresent
+   the actual store — every photo now gets a shared cinematic
+   treatment so gaps read as shadow/atmosphere:
+   - Warm colour-grade via CSS `filter: contrast(~1.08)
+     saturate(~1.12) brightness(~0.94)` on `.selection__item img`,
+     `.hero__photo`, and `.location__storefront img`.
+   - Edge/bottom vignette + scrim via `::before`/`::after` overlays on
+     `.card__image`, `.selection__item`, plus extra gradient layers on
+     `.hero__photo` and `.ambiance` (radial darken from the top-centre,
+     stronger bottom fade). Values were dialled back once after the
+     first attempt left the small category tiles too dark — keep them
+     subtle.
+   - `.hero__photo` also gains a bottom `linear-gradient(... var(--bg))`
+     fade so the hero melts into the Shop section.
+   - Reframing to crop empty shelf out of view: Beer tile
+     `background-position` `center 32%` → `center 20%`; the Gin
+     selection tile (`.selection__item:nth-child(3) img`)
+     `object-position: center 26%`.
+   - `.selection__item` tiles get editorial index numerals
+     (`01`–`04`, gold, top-left) via a CSS counter (`counter-reset:
+     sel` on the grid) — purely decorative "this is designed" signal.
+   - `.card__icon` / `.card__arrow` got `position: relative; z-index: 1`
+     so they sit above the new `.card__image::before` overlay; the icon
+     also gained a `drop-shadow`.
+
+   Committed-but-unused from the second batch (available in
+   `assets/`, descriptive names): `boxed-wine-endcap.jpg`,
+   `cooler-singles-and-soda.jpg`, `cooler-wine-and-sodas.jpg`,
+   `gin-endcap.jpg`, `interior-entry-mural.jpg`,
+   `interior-mural-cooler-wall.jpg`, `liqueur-aisle-depth.jpg`,
+   `sake-soju-aisle-tall.jpg`, `storefront-open-sign.jpg`,
+   `vodka-wall.jpg`. `interior-entry-mural.jpg` and
+   `interior-mural-cooler-wall.jpg` are the cleanest mural/interior
+   shots yet and could replace or supplement `interior-ambiance.jpg` in
+   the ambiance band.
 3. ~~Specific featured products/brands.~~ **Done 2026-09-07** — Wine,
    Spirits, and Beer tiles all name real carried brands (Hennessy, Grey
    Goose, Jameson, Elijah Craig, Aspen Peak Cellars, Colorado Native,
