@@ -83,6 +83,8 @@ a:hover { text-decoration: underline; }
   html { scroll-behavior: auto; }
   .reveal { opacity: 1; transform: none; transition: none; }
   .btn, .card, a { transition: none; }
+  .selection__item img { transition: none; }
+  .selection__item:hover img { transform: none; }
   .hero__title .line > span { opacity: 1; transform: none; transition: none; }
   .hero__spotlight { display: none; }
 }
@@ -263,6 +265,16 @@ a:hover { text-decoration: underline; }
   border-bottom: 1px solid var(--border);
 }
 
+.hero__photo {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background:
+    linear-gradient(112deg, rgba(16, 13, 12, 0.95) 0%, rgba(16, 13, 12, 0.82) 44%, rgba(16, 13, 12, 0.55) 100%),
+    url("assets/spirits-aisle-wide.jpg") center / cover no-repeat;
+  pointer-events: none;
+}
+
 .hero__glow {
   position: absolute;
   inset: -20% -10% auto -10%;
@@ -428,6 +440,70 @@ a:hover { text-decoration: underline; }
 }
 .ambiance__text p { color: var(--text-dim); margin: 0; }
 
+/* Storefront photo in the Location section */
+.location__storefront {
+  grid-column: 1 / -1;
+  margin: 8px 0 0;
+}
+.location__storefront img {
+  display: block;
+  width: 100%;
+  height: 340px;
+  object-fit: cover;
+  border-radius: var(--radius);
+  border: 1px solid var(--border-light);
+  box-shadow: var(--shadow);
+}
+.location__storefront figcaption {
+  margin-top: 12px;
+  color: var(--text-dim);
+  font-size: 0.85rem;
+}
+.location__storefront figcaption strong { color: var(--gold-light); }
+
+/* "A serious selection" photo band */
+.selection__lead {
+  color: var(--text-dim);
+  font-size: 1.05rem;
+  max-width: min(52ch, 100%);
+  margin: 16px 0 0;
+}
+.selection__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  margin-top: 44px;
+}
+.selection__item {
+  position: relative;
+  margin: 0;
+  height: clamp(300px, 30vw, 400px);
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid var(--border);
+}
+.selection__item img {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s var(--ease);
+}
+.selection__item:hover img { transform: scale(1.04); }
+.selection__item figcaption {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 28px 16px 14px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text);
+  background: linear-gradient(to top, rgba(16, 13, 12, 0.88), transparent);
+}
+
 /* Bento grid / cards */
 .bento {
   display: grid;
@@ -480,7 +556,7 @@ a:hover { text-decoration: underline; }
 .card__image--beer {
   background:
     linear-gradient(160deg, rgba(24, 18, 4, 0.6), rgba(16, 12, 4, 0.4)),
-    url('assets/category-beer.jpg') center/cover no-repeat;
+    url('assets/category-beer.jpg') center 32% / cover no-repeat;
 }
 .card__image--mixers {
   background:
@@ -643,6 +719,7 @@ a:hover { text-decoration: underline; }
   .reviews__layout { grid-template-columns: 1fr; gap: 32px; }
   .reviews__watermark { font-size: 18rem; }
   .hero__wordmark-bg { font-size: clamp(6rem, 30vw, 14rem); opacity: 0.4; }
+  .selection__grid { grid-template-columns: repeat(2, 1fr); }
 }
 
 @media (max-width: 800px) {
@@ -652,9 +729,19 @@ a:hover { text-decoration: underline; }
   .card--feature .card__image { aspect-ratio: 16/9; min-height: 0; }
   .location { grid-template-columns: 1fr; }
   .location__map { aspect-ratio: 16/9; }
+  .location__storefront img { height: 220px; }
   .hero { padding: 120px 0 80px; }
+  .hero__photo {
+    background:
+      linear-gradient(180deg, rgba(16, 13, 12, 0.86) 0%, rgba(16, 13, 12, 0.78) 55%, rgba(16, 13, 12, 0.6) 100%),
+      url("assets/spirits-aisle-wide.jpg") center / cover no-repeat;
+  }
   .footer__inner { flex-direction: column; }
   .footer__responsible { text-align: left; }
+}
+
+@media (max-width: 560px) {
+  .selection__grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
 }
 
 /* Cursor-driven effects (tilt, magnetic buttons, spotlight) don't apply on touch */

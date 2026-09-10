@@ -21,10 +21,11 @@ exist locally, both from after the rename. **This file is the only durable
 record of anything decided before that point** — raw chat history is not a
 fallback for pre-rename decisions the way it is for post-rename ones.
 
-Last updated: 2026-09-07 (warm-interior photo pass — swapped the two
-"empty/industrial cooler" category tiles for warmer shots and added a
-full-bleed interior "ambiance" band between Shop and Location; see Open
-items #2).
+Last updated: 2026-09-09 (second photo batch — 20 new store photos shot,
+renamed, deduped; four wired in: a hero background image, a real
+craft-beer cooler for the Beer tile, a new "A serious selection" photo
+band, and the storefront in the Location section. Branch
+`photos/warm-interior-framework` → PR. See Open items #2.)
 
 **Resolved 2026-09-07 — business name confirmed.** The "Long's Liquor"
 road sign is old signage from before a rebrand; **"Pine Liquors &
@@ -225,13 +226,13 @@ business's site. Process going forward:
      under the log-beam ceiling.
    - Spirits: `assets/category-spirits.jpg` (was
      `premium-spirits-shelf-hennessy.jpg`) — the full spirits wall.
-   - Beer: `assets/category-beer.jpg` (was `back-room-coolers-snacks.jpg`)
-     — **weakest tile, known placeholder.** It's warm (knotty pine,
-     glass-door coolers) and not empty/grim, but the centre crop reads
-     "snack corner / back room" more than "beer." Per the user
-     (2026-09-07): use what we have for now, get a proper
-     stocked-beer-cooler photo from the owner later and drop it on this
-     same filename.
+   - Beer: `assets/category-beer.jpg` — **replaced 2026-09-09.** The old
+     "snack corner / back room" placeholder was overwritten (same
+     filename, per the swap convention) with a real craft-beer cooler
+     shot from the second photo batch: Loveland Aleworks IPAs, Twisted
+     Tea, Voodoo Ranger. `background-position` is `center 32%` to favour
+     the upper cans. Full-res backup:
+     `assets/originals/cooler-craft-beer.jpg`.
    - Mixers: `assets/category-mixers.jpg` (was `cooler-drinks-closeup.jpg`).
 
    **Dropped for looking unwelcoming:** `wine-beer-fridge.jpg` (half the
@@ -251,8 +252,8 @@ business's site. Process going forward:
    featured products/brands when ready" note under the Shop grid; the
    categories now name real brands and use real photos.
 
-   Still-unused photos in `prototype/assets/`: `storefront-exterior.jpg`
-   (good for a hero or the Location section), `checkout-counter-shooters.jpg`,
+   Still-unused photos from the first batch in `prototype/assets/`:
+   `storefront-exterior.jpg`, `checkout-counter-shooters.jpg`,
    `walk-in-cooler-beer-cases-1.jpg`, `liquor-wall-vodka-office.jpg`,
    `whiskey-wall-cigarettes-office.jpg` (best views of the hand-painted
    Western mural, but all have office chair / monitor / license
@@ -262,6 +263,58 @@ business's site. Process going forward:
    repo entirely. `road-sign-longs-liquor.jpg` is deliberately excluded
    from site use (old name/signage — see the note near the top of this
    file).
+
+   **Second photo batch (2026-09-09).** The owner sent 20 more phone
+   photos (Google-default `20260909_HHMMSS.jpg` names — no meaning,
+   safe to discard). Process followed the first-batch pattern: full-res
+   auto-oriented copies into the gitignored `assets/originals/`,
+   ~1920px / ~500 KB web copies committed in `assets/` under
+   descriptive kebab-case names. **No exact (hash) duplicates** were
+   found, in the batch or against existing assets. Three near-duplicate
+   burst shots were dropped at the user's call: a second mid-distance
+   storefront frame, a shot with a bystander's arm in frame, and a
+   half-empty domestic-beer cooler. 17 kept.
+
+   Wired into the page this pass (all on branch
+   `photos/warm-interior-framework`):
+   - **Hero background** — `assets/spirits-aisle-wide.jpg` behind a
+     strong left-to-right dark gradient (`.hero__photo` in CSS, new
+     `<div>` first child of `.hero`). The hero had no photography before
+     this — it was a CSS radial-glow mesh only; the ghost "PINE"
+     wordmark (`.hero__wordmark-bg`) still exists but is now barely
+     visible over the photo (candidate to remove). Mobile gets a more
+     vertical, slightly lighter gradient via the `max-width: 800px`
+     block so the stacked text stays legible.
+   - **Beer tile** — see the `category-beer.jpg` note above.
+   - **New "A serious selection" band** — `id="selection"`, a `.section`
+     between `#shop` and `.ambiance` in `index.html`. Four `<figure>`
+     tiles (`.selection__grid` / `.selection__item`) with real `<img>`
+     (alt text, `loading="lazy"`), a caption in a bottom gradient, and a
+     subtle hover zoom gated behind `prefers-reduced-motion`. Tiles use
+     a fixed `height: clamp(300px, 30vw, 400px)` with
+     `object-fit: cover` — an earlier `aspect-ratio` approach was
+     abandoned because headless-Chrome preview rendering of
+     `aspect-ratio` + `height:100%` child was unreliable; the clamp is
+     deterministic. Images: `whiskey-wall-jim-beam.jpg`,
+     `vodka-gondola.jpg`, `gin-shelf.jpg`, `sake-soju-aisle.jpg`.
+     4-across desktop → 2×2 at ≤960px.
+   - **Storefront in Location** — `assets/storefront-wide.jpg` as a
+     full-width `<figure class="location__storefront">` (grid-column
+     `1 / -1`) after the map inside `.location`, captioned "look for the
+     red siding and the neon OPEN sign." Fixed `height: 340px` (220px on
+     mobile).
+   - **Nav** gained a "Selection" link between Shop and Location.
+
+   Committed-but-unused from the second batch (available in
+   `assets/`, descriptive names): `boxed-wine-endcap.jpg`,
+   `cooler-singles-and-soda.jpg`, `cooler-wine-and-sodas.jpg`,
+   `gin-endcap.jpg`, `interior-entry-mural.jpg`,
+   `interior-mural-cooler-wall.jpg`, `liqueur-aisle-depth.jpg`,
+   `sake-soju-aisle-tall.jpg`, `storefront-open-sign.jpg`,
+   `vodka-wall.jpg`. `interior-entry-mural.jpg` and
+   `interior-mural-cooler-wall.jpg` are the cleanest mural/interior
+   shots yet and could replace or supplement `interior-ambiance.jpg` in
+   the ambiance band.
 3. ~~Specific featured products/brands.~~ **Done 2026-09-07** — Wine,
    Spirits, and Beer tiles all name real carried brands (Hennessy, Grey
    Goose, Jameson, Elijah Craig, Aspen Peak Cellars, Colorado Native,
