@@ -24,8 +24,10 @@ fallback for pre-rename decisions the way it is for post-rename ones.
 Last updated: 2026-09-09 (second photo batch — 20 new store photos shot,
 renamed, deduped; four wired in: a hero background image, a real
 craft-beer cooler for the Beer tile, a new "A serious selection" photo
-band, and the storefront in the Location section. Branch
-`photos/warm-interior-framework` → PR. See Open items #2.)
+band, and the storefront in the Location section. Then a "fluff" pass:
+a shared warm color-grade + vignette/scrim treatment over every photo
+so partially-stocked shelves read as atmosphere rather than gaps.
+Branch `photos/warm-interior-framework` → PR #1. See Open items #2.)
 
 **Resolved 2026-09-07 — business name confirmed.** The "Long's Liquor"
 road sign is old signage from before a rebrand; **"Pine Liquors &
@@ -304,6 +306,33 @@ business's site. Process going forward:
      red siding and the neon OPEN sign." Fixed `height: 340px` (220px on
      mobile).
    - **Nav** gained a "Selection" link between Shop and Location.
+
+   **"Fluff" pass (same commit series).** The store is only
+   partially stocked in places (empty shelf sections in several
+   photos). Rather than retouch product in — which would misrepresent
+   the actual store — every photo now gets a shared cinematic
+   treatment so gaps read as shadow/atmosphere:
+   - Warm colour-grade via CSS `filter: contrast(~1.08)
+     saturate(~1.12) brightness(~0.94)` on `.selection__item img`,
+     `.hero__photo`, and `.location__storefront img`.
+   - Edge/bottom vignette + scrim via `::before`/`::after` overlays on
+     `.card__image`, `.selection__item`, plus extra gradient layers on
+     `.hero__photo` and `.ambiance` (radial darken from the top-centre,
+     stronger bottom fade). Values were dialled back once after the
+     first attempt left the small category tiles too dark — keep them
+     subtle.
+   - `.hero__photo` also gains a bottom `linear-gradient(... var(--bg))`
+     fade so the hero melts into the Shop section.
+   - Reframing to crop empty shelf out of view: Beer tile
+     `background-position` `center 32%` → `center 20%`; the Gin
+     selection tile (`.selection__item:nth-child(3) img`)
+     `object-position: center 26%`.
+   - `.selection__item` tiles get editorial index numerals
+     (`01`–`04`, gold, top-left) via a CSS counter (`counter-reset:
+     sel` on the grid) — purely decorative "this is designed" signal.
+   - `.card__icon` / `.card__arrow` got `position: relative; z-index: 1`
+     so they sit above the new `.card__image::before` overlay; the icon
+     also gained a `drop-shadow`.
 
    Committed-but-unused from the second batch (available in
    `assets/`, descriptive names): `boxed-wine-endcap.jpg`,
